@@ -3,7 +3,9 @@ package Universidad;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UniversidadImpl implements IUniversidad {
     private List<IEstudiante> estudiantes;
@@ -11,6 +13,7 @@ public class UniversidadImpl implements IUniversidad {
     private List<ICurso> cursos;
     private List<IDepartamento> departamentos;
     private List<IAsignatura> asignaturas;
+    private Map<IEstudiante, List<Double>> calificacionesEstudiantes;
 
     public UniversidadImpl() {
         this.estudiantes = new ArrayList<>();
@@ -18,6 +21,7 @@ public class UniversidadImpl implements IUniversidad {
         this.cursos = new ArrayList<>();
         this.departamentos = new ArrayList<>();
         this.asignaturas = new ArrayList<>();
+        this.calificacionesEstudiantes = new HashMap<>();
     }
 
     @Override
@@ -49,9 +53,7 @@ public class UniversidadImpl implements IUniversidad {
     public void mostrarInformacionEstudiantes() {
         System.out.println("Información de Estudiantes:");
         for (IEstudiante estudiante : estudiantes) {
-            estudiante.mostrarInformacionPersonal();
-            estudiante.mostrarCursosMatriculados();
-            estudiante.mostrarDepartamentosAsociados();
+            mostrarInformacionDetalladaEstudiante(estudiante);
         }
     }
 
@@ -86,6 +88,22 @@ public class UniversidadImpl implements IUniversidad {
         for (IAsignatura asignatura : asignaturas) {
             asignatura.mostrarInformacion();
         }
+    }
+
+    private List<Double> obtenerCalificacionesEstudiante(IEstudiante estudiante) {
+        return calificacionesEstudiantes.getOrDefault(estudiante, new ArrayList<>());
+    }
+
+    public void agregarCalificacionesEstudiante(IEstudiante estudiante, List<Double> calificaciones) {
+        calificacionesEstudiantes.put(estudiante, calificaciones);
+    }
+
+    public void mostrarInformacionDetalladaEstudiante(IEstudiante estudiante) {
+        System.out.println("Información detallada de " + estudiante.getNombre() + ":");
+        estudiante.mostrarInformacionPersonal();
+        estudiante.mostrarCursosMatriculados();
+        estudiante.mostrarDepartamentosAsociados();
+        System.out.println("Promedio de calificaciones: " + calcularPromedioEstudiante(estudiante));
     }
 
     @Override
@@ -146,6 +164,22 @@ public class UniversidadImpl implements IUniversidad {
         }
     }
 
+
+    private double calcularPromedioEstudiante(IEstudiante estudiante) {
+        List<Double> calificaciones = obtenerCalificacionesEstudiante(estudiante);
+
+        if (calificaciones.isEmpty()) {
+            return 0.0;
+        }
+
+        double sumaCalificaciones = 0.0;
+        for (Double calificacion : calificaciones) {
+            sumaCalificaciones += calificacion;
+        }
+
+        return sumaCalificaciones / calificaciones.size();
+    }
+
     private IEstudiante buscarEstudiante(String nombre) {
         for (IEstudiante estudiante : estudiantes) {
             if (estudiante.getNombre().equals(nombre)) {
@@ -154,7 +188,7 @@ public class UniversidadImpl implements IUniversidad {
         }
         return null;
     }
-
+    
     private IProfesor buscarProfesor(String nombre) {
         for (IProfesor profesor : profesores) {
             if (profesor.getNombre().equals(nombre)) {
@@ -163,7 +197,7 @@ public class UniversidadImpl implements IUniversidad {
         }
         return null;
     }
-
+    
     private ICurso buscarCurso(String nombre) {
         for (ICurso curso : cursos) {
             if (curso.getNombre().equals(nombre)) {
@@ -172,7 +206,7 @@ public class UniversidadImpl implements IUniversidad {
         }
         return null;
     }
-
+    
     private IDepartamento buscarDepartamento(String nombre) {
         for (IDepartamento departamento : departamentos) {
             if (departamento.getNombre().equals(nombre)) {
@@ -181,7 +215,7 @@ public class UniversidadImpl implements IUniversidad {
         }
         return null;
     }
-
+    
     private IAsignatura buscarAsignatura(String nombre) {
         for (IAsignatura asignatura : asignaturas) {
             if (asignatura.getNombre().equals(nombre)) {
@@ -190,10 +224,4 @@ public class UniversidadImpl implements IUniversidad {
         }
         return null;
     }
-
-    private double calcularPromedioEstudiante(IEstudiante estudiante) {
-        // Lógica para calcular el promedio de calificaciones de un estudiante (puede implementarse según tus necesidades)
-        return 0.0;
-    }
 }
-

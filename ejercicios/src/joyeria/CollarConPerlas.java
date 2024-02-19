@@ -11,8 +11,7 @@ public class CollarConPerlas implements JoyaConPerlas {
 
     @Override
     public double calcularPrecio() {
-        // Lógica de cálculo de precio para collar con perlas
-        return cantidadPerlas * 50.0; // Precio ficticio para demostración
+        return cantidadPerlas * 50.0;
     }
 
     @Override

@@ -1,24 +1,20 @@
 package clase7.Ejercicio4;
 
 class Habitacion {
-	// Atributos
 	private int numero;
 	private String tipo;
 	private String estado;
 
-	// Constructor
 	public Habitacion(int numero, String tipo) {
 		this.numero = numero;
 		this.tipo = tipo;
 		this.estado = "disponible";
 	}
 
-	// Método para cambiar el estado de la habitación
 	public void cambiarEstado(String nuevoEstado) {
 		this.estado = nuevoEstado;
 	}
 
-	// Método para mostrar la información de la habitación
 	public void mostrarInformacion() {
 		System.out.println();
 		System.out.println("Número de habitación: " + numero);

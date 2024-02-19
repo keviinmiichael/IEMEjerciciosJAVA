@@ -49,7 +49,6 @@ public class Contenedor<T> {
     }
 
     public static void main(String[] args) {
-        // Ejemplo de uso
         Contenedor<String> contenedorString = new Contenedor<>();
         contenedorString.agregarElemento("Hola");
         contenedorString.agregarElemento("Mundo");

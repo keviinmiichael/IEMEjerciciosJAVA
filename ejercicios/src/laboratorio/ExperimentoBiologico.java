@@ -11,13 +11,11 @@ class ExperimentoBiologico extends Experimento {
     @Override
     public void realizarExperimento() {
         System.out.println("Realizando Experimento Biológico: " + getNombre());
-        // Lógica específica para experimentos biológicos
     }
 
     @Override
     public void analizarResultados() {
         System.out.println("Analizando Resultados del Experimento Biológico: " + getNombre());
-        // Lógica específica para analizar resultados de experimentos biológicos
     }
 }
 

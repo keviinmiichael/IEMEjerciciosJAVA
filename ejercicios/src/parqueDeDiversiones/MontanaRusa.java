@@ -10,7 +10,6 @@ class MontanaRusa extends Atraccion {
 
     @Override
     public double calcularPrecioEntrada() {
-        // Reglas específicas para calcular el precio de entrada a la montaña rusa
         return getCostoBase() + (numeroVueltas * 2.5);
     }
 }

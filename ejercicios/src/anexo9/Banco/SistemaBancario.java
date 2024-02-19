@@ -18,7 +18,6 @@ public class SistemaBancario {
         cliente2.agregarCuenta(cuentaAhorro2);
         banco.agregarCliente(cliente2);
 
-        // Realizar transacciones
         cuentaPrincipal1.depositar(1000);
         cuentaPrincipal1.retirar(200);
         cuentaPrincipal1.transferir(cuentaAhorro1, 300);
@@ -27,11 +26,9 @@ public class SistemaBancario {
         cuentaPrincipal2.retirar(500);
         cuentaPrincipal2.transferir(cuentaAhorro2, 700);
 
-        // Realizar préstamos
         banco.realizarPrestamo(cliente1, 500);
         banco.realizarPrestamo(cliente2, 800);
 
-        // Imprimir resumen financiero
         banco.imprimirResumenFinanciero();
     }
 }

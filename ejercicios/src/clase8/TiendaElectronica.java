@@ -39,7 +39,6 @@ class TiendaElectronica {
         }
     }
 
-    // Getters para obtener el inventario y clientes
     public ArrayList<Producto> getInventario() {
         return inventario;
     }

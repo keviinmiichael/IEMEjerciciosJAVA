@@ -10,7 +10,6 @@ class Carrusel extends Atraccion {
 
     @Override
     public double calcularPrecioEntrada() {
-        // Reglas específicas para calcular el precio de entrada al carrusel
         return getCostoBase() + (tieneMusica ? 1.5 : 0);
     }
 }

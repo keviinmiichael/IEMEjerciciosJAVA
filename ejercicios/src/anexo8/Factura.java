@@ -15,10 +15,10 @@ class Factura {
 
     public double calcularDescuentoTotal() {
         double descuentoMuebles = muebles.stream().mapToDouble(Mueble::calcularDescuento).sum();
-        double descuentoCliente = cliente.getPuntosFidelidad() * 0.01; // Ejemplo de descuento por puntos de fidelidad
+        double descuentoCliente = cliente.getPuntosFidelidad() * 0.01; 
         double descuentoTotal = descuentoMuebles + descuentoCliente + descuentoEspecifico;
 
-        // Limitar el descuento total al 40%
+        
         return Math.min(descuentoTotal, 0.4);
     }
 

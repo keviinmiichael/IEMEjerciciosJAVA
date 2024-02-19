@@ -3,7 +3,8 @@ package clasesGenericas;
 import java.util.ArrayList;
 import java.util.List;
 
-// Clase genérica para contener empleados y sus subclases
+
+
 public class ContenedorEmpleado<T extends Empleado> {
     private List<T> empleados;
 
@@ -38,7 +39,8 @@ public class ContenedorEmpleado<T extends Empleado> {
     }
 
     public static void main(String[] args) {
-        // Ejemplo de uso con Empleado y sus subclases
+        
+        
         ContenedorEmpleado<Empleado> contenedor = new ContenedorEmpleado<>();
 
         Empleado empleado1 = new Empleado("Juan", 1000);
@@ -51,7 +53,8 @@ public class ContenedorEmpleado<T extends Empleado> {
     }
 }
 
-// Clase base Empleado
+
+
 class Empleado {
     private String nombre;
     private double salario;
@@ -61,7 +64,8 @@ class Empleado {
         this.salario = salario;
     }
 
-    // Getters y setters
+    
+    
 
     @Override
     public String toString() {
@@ -69,7 +73,8 @@ class Empleado {
     }
 }
 
-// Subclase EmpleadoPorHora
+
+
 class EmpleadoPorHora extends Empleado {
     private int horasTrabajadas;
 
@@ -78,7 +83,8 @@ class EmpleadoPorHora extends Empleado {
         this.horasTrabajadas = horasTrabajadas;
     }
 
-    // Getter y setter específico para horasTrabajadas
+    
+    
 
     @Override
     public String toString() {

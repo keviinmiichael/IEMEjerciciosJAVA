@@ -2,10 +2,10 @@ package Universidad;
 
 public class Main {
     public static void main(String[] args) {
-        // Crear una instancia de la universidad
+        
         IUniversidad universidad = new UniversidadImpl();
 
-        // Crear estudiantes, profesores, cursos, departamentos y asignaturas
+        
         IEstudiante estudiante1 = new EstudianteImpl("Estudiante1", "01/01/2000", "M", "Dirección1");
         IEstudiante estudiante2 = new EstudianteImpl("Estudiante2", "02/02/2001", "F", "Dirección2");
 
@@ -21,7 +21,7 @@ public class Main {
         IAsignatura asignatura1 = new AsignaturaImpl("Asignatura1");
         IAsignatura asignatura2 = new AsignaturaImpl("Asignatura2");
 
-        // Agregar estudiantes, profesores, cursos, departamentos y asignaturas a la universidad
+        
         universidad.agregarEstudiante(estudiante1);
         universidad.agregarEstudiante(estudiante2);
 
@@ -37,25 +37,25 @@ public class Main {
         universidad.agregarAsignatura(asignatura1);
         universidad.agregarAsignatura(asignatura2);
 
-        // Asignar estudiantes a cursos y departamentos
+        
         universidad.asignarEstudianteACurso("Estudiante1", "Curso1");
         universidad.asignarEstudianteACurso("Estudiante2", "Curso2");
 
         universidad.asignarEstudianteADepartamento("Estudiante1", "Departamento1");
         universidad.asignarEstudianteADepartamento("Estudiante2", "Departamento2");
 
-        // Asignar profesores a asignaturas
+        
         universidad.asignarProfesorAAsignatura("Profesor1", "Asignatura1");
         universidad.asignarProfesorAAsignatura("Profesor2", "Asignatura2");
 
-        // Mostrar información
+        
         universidad.mostrarInformacionEstudiantes();
         universidad.mostrarInformacionProfesores();
         universidad.mostrarInformacionCursos();
         universidad.mostrarInformacionDepartamentos();
         universidad.mostrarInformacionAsignaturas();
 
-        // Mostrar mejores promedios y peores calificaciones
+        
         universidad.mostrarMejoresPromedios();
         universidad.mostrarPeoresCalificaciones();
     }

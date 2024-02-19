@@ -11,13 +11,11 @@ class ExperimentoFisico extends Experimento {
     @Override
     public void realizarExperimento() {
         System.out.println("Realizando Experimento Físico: " + getNombre());
-        // Lógica específica para experimentos físicos
     }
 
     @Override
     public void analizarResultados() {
         System.out.println("Analizando Resultados del Experimento Físico: " + getNombre());
-        // Lógica específica para analizar resultados de experimentos físicos
     }
 }
 

@@ -11,8 +11,7 @@ public class AnilloConDiamantes implements JoyaConDiamantes {
 
     @Override
     public double calcularPrecio() {
-        // Lógica de cálculo de precio para anillo con diamantes
-        return cantidadDiamantes * 100.0; // Precio ficticio para demostración
+        return cantidadDiamantes * 100.0; 
     }
 
     @Override

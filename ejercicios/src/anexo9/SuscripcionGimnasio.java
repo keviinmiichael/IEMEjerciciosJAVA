@@ -49,13 +49,10 @@ public class SuscripcionGimnasio {
     }
 
     public static void main(String[] args) {
-        // Ejemplo de uso en el programa principal
         SuscripcionGimnasio suscripcion = new SuscripcionGimnasio("Cliente1", 25, true);
 
-        // Renovar suscripción
         suscripcion.renovarSuscripcion();
 
-        // Verificar acceso al gimnasio
         if (suscripcion.verificarAccesoGimnasio()) {
             System.out.println(suscripcion.getName() + " tiene acceso al gimnasio");
         } else {

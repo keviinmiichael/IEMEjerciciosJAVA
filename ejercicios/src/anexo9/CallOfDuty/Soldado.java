@@ -31,21 +31,21 @@ public class Soldado {
         return ataque;
     }
 
-    // Método para realizar un ataque individual
+    
     public int atacarIndividualmente() {
         Random rand = new Random();
-        int damage = rand.nextInt(ataque + 1); // Daño aleatorio entre 0 y ataque
+        int damage = rand.nextInt(ataque + 1); 
         int enemyDamage = rand.nextInt(Math.max(salud / 4 + 1, 1)) - rand.nextInt(Math.max(defensa / 2 + 1, 1));
-        int totalDamage = Math.max(damage - enemyDamage, 0); // Daño total, no puede ser negativo
-        salud -= totalDamage; // Actualiza la salud del soldado
-        return totalDamage; // Retorna el daño causado
+        int totalDamage = Math.max(damage - enemyDamage, 0); 
+        salud -= totalDamage; 
+        return totalDamage; 
     }
 
-    // Método para realizar un ataque colectivo a un equipo enemigo
+    
     public int atacarEquipo(Equipo equipoEnemigo) {
         int totalDamage = 0;
         for (Soldado enemySoldier : equipoEnemigo.getSoldados()) {
-            totalDamage += atacarIndividualmente(); // Acumula el daño total causado por el equipo
+            totalDamage += atacarIndividualmente(); 
         }
         return totalDamage;
     }

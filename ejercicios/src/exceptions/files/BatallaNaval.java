@@ -6,36 +6,36 @@ public class BatallaNaval {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Tamaño del océano
+        
         int n = 5;
 
-        // Crear océanos para cada equipo
+        
         char[][] oceanTeam1 = createOcean(n);
         char[][] oceanTeam2 = createOcean(n);
         char[][] oceanTeam3 = createOcean(n);
 
-        // Colocar barcos en los océanos
+        
         placeShips(oceanTeam1, "Equipo 1", scanner);
         placeShips(oceanTeam2, "Equipo 2", scanner);
         placeShips(oceanTeam3, "Equipo 3", scanner);
 
-        // Iniciar el juego
+        
         while (true) {
-            // Turno de Equipo 1
+            
             performAttack(oceanTeam1, "Equipo 1", oceanTeam2, oceanTeam3, scanner);
             if (isGameOver(oceanTeam2, oceanTeam3)) {
                 printWinner("Equipo 1");
                 break;
             }
 
-            // Turno de Equipo 2
+            
             performAttack(oceanTeam2, "Equipo 2", oceanTeam1, oceanTeam3, scanner);
             if (isGameOver(oceanTeam1, oceanTeam3)) {
                 printWinner("Equipo 2");
                 break;
             }
 
-            // Turno de Equipo 3
+            
             performAttack(oceanTeam3, "Equipo 3", oceanTeam1, oceanTeam2, scanner);
             if (isGameOver(oceanTeam1, oceanTeam2)) {
                 printWinner("Equipo 3");
@@ -48,7 +48,7 @@ public class BatallaNaval {
         char[][] ocean = new char[n][n];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                ocean[i][j] = '~'; // Inicializar todo con agua
+                ocean[i][j] = '~'; 
             }
         }
         return ocean;
@@ -56,8 +56,8 @@ public class BatallaNaval {
 
     private static void placeShips(char[][] ocean, String teamName, Scanner scanner) {
         System.out.println("Colocar barcos para " + teamName);
-        // Puedes implementar la lógica para que los jugadores coloquen sus barcos en el océano aquí.
-        // Este es un ejemplo básico.
+        
+        
         for (int i = 0; i < ocean.length; i++) {
             int shipColumn;
             do {
@@ -70,7 +70,7 @@ public class BatallaNaval {
                     if (ocean[i][shipColumn] != '~') {
                         throw new RuntimeException("¡Posición ocupada!");
                     }
-                    break;  // Salir del bucle si la entrada es válida
+                    break;  
                 } catch (NumberFormatException e) {
                     System.out.println("Por favor, ingresa una columna válida.");
                 } catch (RuntimeException e) {
@@ -100,7 +100,7 @@ public class BatallaNaval {
                     attackColumn < 0 || attackColumn >= attackingOcean[0].length) {
                     throw new NumberFormatException();
                 }
-                break;  // Salir del bucle si la entrada es válida
+                break;  
             } catch (NumberFormatException e) {
                 System.out.println("Por favor, ingresa filas y columnas válidas.");
             }
@@ -116,7 +116,7 @@ public class BatallaNaval {
             System.out.println("Ataque fallido. Solo agua.");
         }
 
-        // Mostrar el estado actual de los océanos
+        
         System.out.println("Estado actual de los océanos:");
         printOcean(attackingOcean);
         printOcean(targetOcean1);
@@ -125,11 +125,11 @@ public class BatallaNaval {
     }
 
     private static boolean isGameOver(char[][] ocean1, char[][] ocean2) {
-        // Verificar si todos los barcos en un océano han sido hundidos
+        
         for (char[] row : ocean1) {
             for (char cell : row) {
                 if (cell == 'B') {
-                    return false; // Todavía hay barcos en el océano 1
+                    return false; 
                 }
             }
         }
@@ -137,12 +137,12 @@ public class BatallaNaval {
         for (char[] row : ocean2) {
             for (char cell : row) {
                 if (cell == 'B') {
-                    return false; // Todavía hay barcos en el océano 2
+                    return false; 
                 }
             }
         }
 
-        return true; // Todos los barcos han sido hundidos en ambos océanos
+        return true; 
     }
 
     private static void printOcean(char[][] ocean) {

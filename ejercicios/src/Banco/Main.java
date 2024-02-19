@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Crear banco, clientes y cuentas bancarias
+        
         Banco banco = new Banco();
         Cliente cliente1 = new Cliente("123456789", 1000.0);
         Cliente cliente2 = new Cliente("987654321", 500.0);
@@ -21,7 +21,7 @@ public class Main {
             System.out.print("Seleccione una opción: ");
 
             int opcion = scanner.nextInt();
-            scanner.nextLine(); // Consumir el salto de línea
+            scanner.nextLine(); 
 
             switch (opcion) {
                 case 1:
@@ -42,7 +42,7 @@ public class Main {
 
                     System.out.print("Ingrese la cantidad a pagar: $");
                     double cantidad = scanner.nextDouble();
-                    scanner.nextLine(); // Consumir el salto de línea
+                    scanner.nextLine(); 
 
                     System.out.println("Seleccione el método de pago:");
                     System.out.println("1. PayPal");
@@ -51,7 +51,7 @@ public class Main {
                     System.out.print("Seleccione una opción: ");
 
                     int metodoPagoSeleccionado = scanner.nextInt();
-                    scanner.nextLine(); // Consumir el salto de línea
+                    scanner.nextLine(); 
 
                     IMetodoPago metodoPago = null;
                     switch (metodoPagoSeleccionado) {

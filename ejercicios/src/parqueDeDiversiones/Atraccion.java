@@ -17,6 +17,5 @@ abstract class Atraccion {
         return costoBase;
     }
 
-    // Método abstracto que debe ser implementado por las subclases
     public abstract double calcularPrecioEntrada();
 }

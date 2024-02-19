@@ -48,7 +48,6 @@ public class RedSocial {
         System.out.println("--------------------------------------");
     }
 
-    // Otros métodos según sea necesario
 
     public static void main(String[] args) {
         System.out.println();

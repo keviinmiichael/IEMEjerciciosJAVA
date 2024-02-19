@@ -15,7 +15,6 @@ public class JuguetePeluche implements Juguete {
 
     @Override
     public double calcularPrecio() {
-        // Lógica de cálculo de precio para juguete de peluche
-        return lavable ? 15.0 : 10.0; // Precio ficticio para demostración
+        return lavable ? 15.0 : 10.0; 
     }
 }

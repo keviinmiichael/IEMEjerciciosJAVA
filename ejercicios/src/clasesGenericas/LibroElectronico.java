@@ -43,14 +43,12 @@ public class LibroElectronico<T> {
     }
 
     public static void main(String[] args) {
-        // Ejemplo de uso
         LibroElectronico<Double> libroCienciaFiccion = new LibroElectronico<>("El Fin de la Eternidad", "Isaac Asimov", 19.99);
         libroCienciaFiccion.mostrarDetalles();
 
         LibroElectronico<Integer> libroHistoria = new LibroElectronico<>("Sapiens", "Yuval Noah Harari", 25);
         libroHistoria.mostrarDetalles();
         
-        // También puedes usar otros tipos de precios según tus necesidades
         LibroElectronico<Float> libroEconomia = new LibroElectronico<>("La Riqueza de las Naciones", "Adam Smith", 15.50f);
         libroEconomia.mostrarDetalles();
     }

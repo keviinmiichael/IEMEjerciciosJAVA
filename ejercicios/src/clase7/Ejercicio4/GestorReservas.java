@@ -1,20 +1,17 @@
 package clase7.Ejercicio4;
 
 class GestorReservas {
-	// Atributo
 	private Habitacion[] habitaciones;
 	private Reserva[] reservas;
 	private int numHabitaciones;
 	private int contadorReservas = 0;
 
-	// Constructor
 	public GestorReservas(int capacidadMaxima) {
 		this.habitaciones = new Habitacion[capacidadMaxima];
 		this.reservas = new Reserva[capacidadMaxima];
 		this.numHabitaciones = 0;
 	}
 
-	// Método para agregar una habitación al gestor
 	public void agregarHabitacion(Habitacion habitacion) {
 		if (numHabitaciones < habitaciones.length) {
 			habitaciones[numHabitaciones] = habitacion;
@@ -24,7 +21,6 @@ class GestorReservas {
 		}
 	}
 
-	// Método para realizar una reserva
 	public void realizarReserva(Reserva reserva) {
 		Habitacion habitacionReservada = reserva.getHabitacion();
 		boolean habitacionEncontrada = false;
@@ -45,7 +41,6 @@ class GestorReservas {
 		}
 	}
 
-	// Método para mostrar información sobre las reservas
 	public void mostrarInformacionReservas() {
 		System.out.println();
 		System.out.println("Información sobre las reservas:");
@@ -63,12 +58,10 @@ class GestorReservas {
 		}
 	}
 
-	// Método auxiliar para encontrar la reserva asociada a una habitación
 	private Reserva encontrarReservaPorHabitacion(Habitacion habitacion) {
 		for (int i = 0; i < numHabitaciones; i++) {
 			Habitacion habitacionActual = habitaciones[i];
 			if (habitacionActual != null && habitacionActual.equals(habitacion)) {
-				// Aquí asumimos que cada habitación tiene solo una reserva
 				Reserva reserva = null;
 				for (int j = 0; j < contadorReservas; j++) {
 					if (reservas[j].getHabitacion().getNumero() == habitacion.getNumero()) {
@@ -81,7 +74,6 @@ class GestorReservas {
 		return null;
 	}
 
-	// Método para mostrar la ocupación del hotel en un rango de fechas
 	public void mostrarOcupacionHotel(String fechaInicio, String fechaFin) {
 		System.out.println();
 		System.out.println("Ocupación del hotel en el rango de fechas " + fechaInicio + " a " + fechaFin + ":");
@@ -96,7 +88,6 @@ class GestorReservas {
 		}
 	}
 
-	// Método auxiliar para verificar si la fecha dada está en el rango de fechas
 	private boolean estaEnFecha(Reserva reserva, String fechaInicio, String fechaFin) {
 		String reservaInicio = reserva.getFechaInicio();
 		String reservaFin = reserva.getFechaFin();

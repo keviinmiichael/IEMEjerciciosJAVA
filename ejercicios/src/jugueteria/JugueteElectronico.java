@@ -15,7 +15,6 @@ public class JugueteElectronico implements Juguete {
 
     @Override
     public double calcularPrecio() {
-        // Lógica de cálculo de precio para juguete electrónico
-        return pilasIncluidas ? 25.0 : 20.0; // Precio ficticio para demostración
+        return pilasIncluidas ? 25.0 : 20.0;
     }
 }

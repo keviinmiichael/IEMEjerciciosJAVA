@@ -21,10 +21,9 @@ public class TiendaMueble {
     }
 
     public Factura realizarVenta(List<Mueble> muebles, Cliente cliente, double descuentoEspecifico) {
-        // Lógica para realizar la venta, descontar el stock, acumular puntos de fidelidad, etc.
         for (Mueble mueble : muebles) {
             mueble.restarStock(1);
-            cliente.acumularPuntosFidelidad(10); // Ejemplo de acumulación de puntos de fidelidad por mueble comprado
+            cliente.acumularPuntosFidelidad(10); 
         }
 
         return new Factura(muebles, cliente, descuentoEspecifico);
